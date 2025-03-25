@@ -9,13 +9,14 @@ const Cart = () => {
     const cartItems = useSelector((state) => state.cart.items);
     console.log("Cart Items in Redux:", cartItems); 
     const Checkout = () => {
-     
         navigate("/Checkout");
         };
     const AddMore = () => {
         navigate("/");
         };
-
+        const Details = (item) => {
+            navigate("/ProductDescription", { state: { product: item } });
+        };        
     return (
         <div className="cart-container">
         <h2>Shopping Cart</h2>
@@ -29,6 +30,7 @@ const Cart = () => {
                 <h4>{item.title}</h4>
                 <p>${item.price}</p>
                 <button onClick={() => dispatch(removeItem(item.id))}>Remove</button>
+                <button onClick={() => Details(item)}>Details</button>
                 </div>
             </div>
             ))

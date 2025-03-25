@@ -8,7 +8,6 @@ const Checkout = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [submitted, setSubmitted] = useState(false);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(clearCart());
@@ -32,12 +31,10 @@ const Checkout = () => {
           <input type="text" name="address" placeholder="Address" required />
           <input type="text" name="city" placeholder="City" required />
           <input type="text" name="zip" placeholder="ZIP Code" required maxLength="5" />
-
           <h3>Payment Info</h3>
           <input type="text" name="cardNumber" placeholder="Card Number" required maxLength="16" />
           <input type="text" name="expiry" placeholder="MM/YY" required maxLength="5" />
           <input type="text" name="cvv" placeholder="CVV" required maxLength="3" />
-
           <div className="buttons">
             <button type="submit" className="checkout-btn">✅ Place Order</button>
             <button type="button" className="cancel-btn" onClick={GoBack}>Go to Home page</button>

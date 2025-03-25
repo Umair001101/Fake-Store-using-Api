@@ -30,7 +30,7 @@ const ProductDescription = () => {
       >
         Add to Cart
       </button>
-      <button type="button" className="go-back-btn" onClick={() => navigate("/")}>🔙 Go Back</button>
+      <button type="button" className="go-back-btn" onClick={() => navigate("/")}> Go to Home</button>
     </div>
     </>
   );
