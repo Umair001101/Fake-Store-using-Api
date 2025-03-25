@@ -1,0 +1,101 @@
+/* Center the checkout container */
+.checkout-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Form styling */
+  .checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Input fields */
+  .checkout-form input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .checkout-form input:focus {
+    border-color: #007bff;
+  }
+  
+  /* Section title */
+  h3 {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  /* Success message */
+  .success-message {
+    font-size: 18px;
+    color: #28a745;
+    font-weight: bold;
+    padding: 20px;
+    background: #e9ffe9;
+    border-radius: 8px;
+  }
+  
+  /* Button styles */
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .checkout-btn, .go-back-btn {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .checkout-btn {
+    background: #007bff;
+    color: white;
+    margin-right: 10px;
+  }
+  
+  .go-back-btn {
+    background: #ff4d4d;
+    color: white;
+  }
+  
+  .checkout-btn:hover {
+    background: #0056b3;
+  }
+  
+  .go-back-btn:hover {
+    background: #cc0000;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .checkout-container {
+      width: 90%;
+    }
+    
+    .buttons {
+      flex-direction: column;
+    }
+  
+    .checkout-btn, .go-back-btn {
+      width: 100%;
+      margin: 5px 0;
+    }
+  }
+  

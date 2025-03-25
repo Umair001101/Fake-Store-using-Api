@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# 🛍️ FakeStore - React E-commerce Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple e-commerce store built using **React** and **Redux**, fetching product data from the [Fake Store API](https://fakestoreapi.com/products). Users can browse products, view product details, add items to the cart, and proceed to checkout.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- 🛒 **Fetch Products** from [Fake Store API](https://fakestoreapi.com/products)  
+- 🔍 **Product Listing & Description**  
+- 🛍 **Cart Management** (Add & Remove Items)  
+- ✅ **Checkout Page**  
+- 🎯 **Redux State Management**  
+- ❌ **404 Not Found Page**  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📁 Project Structure
 
-### `npm test`
+```
+src/
+│-- components/
+│   ├── Cart.js
+│   ├── NotFound.js
+│   ├── Checkout.js
+│   ├── ProductDescription.js
+│   ├── Product.js
+│   ├── ProductItem.js
+│-- redux/
+│   ├── CartSlice.js
+│   ├── ProductSlice.js
+│   ├── Store.js
+│-- App.css
+│-- App.js
+│-- App.test.js
+│-- index.css
+│-- index.js
+│-- reportWebVitals.js
+│-- setupTests.js
+│-- .gitignore
+│-- package.json
+│-- README.md
+```
+## 2️⃣ Install dependencies
+```
+npm install
+npm install react react-dom react-router-dom @reduxjs/toolkit react-redux
+```
+## 🔌 API Integration
+### This project fetches product data from Fake Store API.
+### Example API call:
+```
+fetch("https://fakestoreapi.com/products")
+  .then(res => res.json())
+  .then(data => console.log(data));
+```
+## 📂 Redux State Management
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Redux is used to manage the **Cart** and **Product** state.
 
-### `npm run build`
+- **`ProductSlice.js`** → Handles fetching products.  
+- **`CartSlice.js`** → Manages cart state (add/remove items).  
+- **`Store.js`** → Combines slices and configures Redux store.  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🌐 React Router Navigation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+React Router is used for client-side routing:
 
-### `npm run eject`
+- **Home Page** → `/`
+- **Product Details** → `/product/:id`
+- **Cart Page** → `/cart`
+- **Checkout Page** → `/checkout`
+- **404 Page** → `/not-found`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Example usage in `App.js`:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```js
+function App() {
+  return (
+    <Router>
+      <Routes>
+          <Route path="/" element={<Products />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/productdescription" element={<ProductDescription />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
+  );
+}
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export default App;
+``` 
+## 3️⃣ Start the development server
+```
+npm start
+```
+### Open your browser and navigate to `http://localhost:3000/` to see the application in action.
+---
+### Commit Messages and API Documentation
