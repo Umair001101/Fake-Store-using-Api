@@ -39,7 +39,6 @@ const Checkout = () => {
             <button type="submit" className="checkout-btn">✅ Place Order</button>
             <button type="button" className="cancel-btn" onClick={GoBack}>Go to Home page</button>
             <button type="button" className="go-back-btn" onClick={() => navigate("/cart")}>🔙 Go Back</button>
-
           </div>
         </form>
       )}

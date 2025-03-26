@@ -99,4 +99,3 @@ npm start
 ```
 ### Open your browser and navigate to `http://localhost:3000/` to see the application in action.
 ---
-### Commit Messages and API Documentation

@@ -14,6 +14,7 @@ const productsSlice = createSlice({
     error: null,
     searchTerm: "",
     selectedCategory: "all",
+    quantity: {}, 
   },
   reducers: {
     setSearchTerm: (state, action) => {
@@ -21,6 +22,10 @@ const productsSlice = createSlice({
     },
     setCategory: (state, action) => {
       state.selectedCategory = action.payload;
+    },
+    setQuantity: (state, action) => {
+      const { id, quantity } = action.payload;
+      state.quantity[id] = quantity; 
     },
   },
   extraReducers: (builder) => {
@@ -31,6 +36,10 @@ const productsSlice = createSlice({
       .addCase(fetchProducts.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.items = action.payload;
+
+        action.payload.forEach((product) => {
+          state.quantity[product.id] = 1;
+        });
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.status = "failed";
@@ -39,5 +48,5 @@ const productsSlice = createSlice({
   },
 });
 
-export const { setSearchTerm, setCategory } = productsSlice.actions;
+export const { setSearchTerm, setCategory, setQuantity } = productsSlice.actions;
 export default productsSlice.reducer;

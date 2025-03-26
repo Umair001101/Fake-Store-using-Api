@@ -1,5 +1,4 @@
-// ProductItem.js
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../Redux/CartSlice";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -25,6 +24,9 @@ const Button = styled.button`
 const ProductItem = ({ product }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const cartItems = useSelector((state) => state.cart.items);
+  const cartItem = cartItems.find((item) => item.id === product.id);
+  const selectedQuantity = cartItem ? cartItem.quantity : 0; 
 
   const handleViewDetails = () => {
     navigate("/productdescription", { state: { product } });
@@ -35,6 +37,8 @@ const ProductItem = ({ product }) => {
       <Image src={product.image} alt={product.title} />
       <h4>{product.title}</h4>
       <p>${product.price}</p>
+      <p>Available Quantity: {product.rating.count}</p>
+      <p>Selected Quantity: {selectedQuantity}</p> 
       <Button onClick={handleViewDetails}>View Details</Button>
       <Button onClick={() => dispatch(addItem(product))}>Add to Cart</Button>
     </Card>
