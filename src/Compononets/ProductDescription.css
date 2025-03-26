@@ -1,49 +1,119 @@
-/* ProductDescription.css */
-
+/* Container for the product description page */
 .product-description {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Product Title */
+.product-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+/* Product Image */
+.product-image {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* Product Description Text */
+.product-description-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+/* Pricing and rating info */
+.product-price {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #007bff;
+  text-align: center;
+}
+
+.product-numbers {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #6c757d;
+  text-align: center;
+}
+
+/* Shared button styles */
+.add-to-cart-btn,
+.go-back-btn,
+.go-back {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Add to Cart button: green */
+.add-to-cart-btn {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #218838;
+}
+
+/* Go to Home button: blue */
+.go-back-btn {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.go-back-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Go to the Cart button: teal */
+.go-back {
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+.go-back:hover {
+  background-color: #138496;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .product-description {
+    padding: 10px;
   }
-  
+
   .product-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-size: 1.5rem;
   }
-  
-  .product-image {
-    width: 100%;
-    max-width: 300px;
-    object-fit: cover;
-    display: block;
-    margin-bottom: 20px;
-  }
-  
+
   .product-description-text {
-    margin-top: 20px;
-    line-height: 1.5;
+    font-size: 1rem;
   }
-  
-  .product-price {
-    margin-top: 10px;
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 20px;
+
+  .product-price,
+  .product-numbers {
+    font-size: 1.2rem;
   }
-  
-  .add-to-cart-btn {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    border: none;
-    color: white;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+
+  .add-to-cart-btn,
+  .go-back-btn,
+  .go-back {
+    font-size: 0.9rem;
+    padding: 8px 16px;
   }
-  
-  .add-to-cart-btn:hover {
-    background-color: #0056b3;
-  }
-  
+}

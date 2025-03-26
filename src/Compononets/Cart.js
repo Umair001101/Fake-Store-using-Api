@@ -1,7 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
-import { removeItem } from "../Redux/CartSlice";
+import { addItem, removeItem } from "../Redux/CartSlice";
 import "./Cart.css"; 
 import { useNavigate } from "react-router-dom";
+
 
 const Cart = () => {
     const navigate = useNavigate();
@@ -25,8 +26,10 @@ const Cart = () => {
     return (
         <div className="cart-container">
             <h2>Shopping Cart</h2>
-            {cartItems.length === 0 ? (
+            {cartItems.length === 0 ? (<>
                 <p className="empty-cart">Your cart is empty.</p>
+                <button onClick={AddMore}>Add items in cart</button>
+                </>
             ) : (
                 <>
                     {cartItems.map((item) => (
@@ -37,16 +40,24 @@ const Cart = () => {
                                 <p>Price: ${item.price}</p>
                                 <p>Quantity: {item.quantity}</p>
                                 <p>Subtotal: ${item.price * item.quantity}</p>
-                                <button onClick={() => dispatch(removeItem(item.id))}>Remove</button>
-                                <button onClick={() => Details(item)}>Details</button>
-                            </div>
+                                <button onClick={() => dispatch(removeItem(item.id))} className="remove-button">
+                                    Remove
+                                    </button>
+                                    <button onClick={() => Details(item)} className="details-button">
+                                    Details
+                                    </button>
+                                    <button onClick={() => dispatch(addItem(item))} className="add-more-button">
+                                    Add more to Cart
+                                    </button>
+                                    </div>
                         </div>
                     ))}
                     <h3>Total Price: ${totalPrice.toFixed(2)}</h3>
+                    <button onClick={Checkout}>Checkout</button>
+                    <button onClick={AddMore}>Add More</button>
                 </>
             )}
-            <button onClick={Checkout}>Checkout</button>
-            <button onClick={AddMore}>Add More</button>
+
         </div>
     );
 };
