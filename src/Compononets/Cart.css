@@ -135,7 +135,6 @@ h3 {
   padding-right: 2rem;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .cart-container {
     padding: 1rem;

@@ -77,7 +77,7 @@ const Checkout = () => {
               />
               <div className="buttons">
                 <button type="submit" className="checkout-btn">
-                  ✅ Place Order
+                   Place Order
                 </button>
                 <button
                   type="button"
@@ -91,7 +91,7 @@ const Checkout = () => {
                   className="go-back-btn"
                   onClick={() => navigate("/cart")}
                 >
-                  🔙 Go Back
+                   Go Back
                 </button>
               </div>
             </form>

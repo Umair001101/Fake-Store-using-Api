@@ -38,16 +38,17 @@ const ProductDescription = () => {
                         Go to Home
                     </button>
                       <button
-                  type="button"
-                  className="go-back"
-                  onClick={() => navigate("/cart")}
-                              >
-                      Go to the Cart
+                        type="button"
+                        className="go-back"
+                        onClick={() => navigate("/cart")}
+                      >
+                            Go to the Cart
                        </button>
                 </>
-            ) : (
-                <p>No product data available.</p>
-            )}
+                        ) : (
+                            <p>No product data available.</p>
+                        )
+            }
         </div>
     );
 };

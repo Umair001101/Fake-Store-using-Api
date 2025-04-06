@@ -9,6 +9,7 @@ const Card = styled.div`
   width: 200px;
 `;
 
+
 const Image = styled.img`
   width: 100%;
   height: 150px;
@@ -16,10 +17,29 @@ const Image = styled.img`
 `;
 
 const Button = styled.button`
-  margin: 5px;
-  padding: 5px 10px;
+  margin: 5px 5px 0 0;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.2s;
+  
+  &:first-of-type {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  &:nth-of-type(2) {
+    background-color: #28a745;
+    color: #fff;
+  }
+
+  &:hover {
+    opacity: 0.4;
+  }
 `;
+
 
 const ProductItem = ({ product }) => {
   const dispatch = useDispatch();

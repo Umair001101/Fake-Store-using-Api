@@ -69,10 +69,10 @@ Redux is used to manage the **Cart** and **Product** state.
 React Router is used for client-side routing:
 
 - **Home Page** → `/`
-- **Product Details** → `/product/:id`
+- **Product Details** → `/productdescription`
 - **Cart Page** → `/cart`
 - **Checkout Page** → `/checkout`
-- **404 Page** → `/not-found`
+- **404 Page** → `/*`
 
 ### Example usage in `App.js`:
 

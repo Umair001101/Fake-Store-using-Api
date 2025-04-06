@@ -40,7 +40,44 @@ h3 {
   font-size: 20px;
 }
 
-/* Responsive styling */
+/* Pagination styles */
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.page-button {
+  padding: 6px 12px;
+  border: none;
+  background-color: #ddd;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.page-button.active {
+  background-color: #333;
+  color: white;
+}
+
+/* Title and count */
+.products-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: left;
+}
+
+.products-count {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
 @media (max-width: 768px) {
   .search-input {
     width: 80%;
