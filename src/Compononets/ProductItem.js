@@ -9,7 +9,6 @@ const Card = styled.div`
   width: 200px;
 `;
 
-
 const Image = styled.img`
   width: 100%;
   height: 150px;
@@ -40,16 +39,23 @@ const Button = styled.button`
   }
 `;
 
-
 const ProductItem = ({ product }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.items);
   const cartItem = cartItems.find((item) => item.id === product.id);
-  const selectedQuantity = cartItem ? cartItem.quantity : 0; 
+  const selectedQuantity = cartItem ? cartItem.quantity : 0;
 
   const handleViewDetails = () => {
     navigate("/productdescription", { state: { product } });
+  };
+
+  const handleAddToCart = () => {
+    if (selectedQuantity >= product.rating.count) {
+      alert("Cannot add more items than available!");
+      return;
+    }
+    dispatch(addItem(product));
   };
 
   return (
@@ -58,9 +64,9 @@ const ProductItem = ({ product }) => {
       <h4>{product.title}</h4>
       <p>${product.price}</p>
       <p>Available Quantity: {product.rating.count}</p>
-      <p>Selected Quantity: {selectedQuantity}</p> 
+      <p>Selected Quantity: {selectedQuantity}</p>
       <Button onClick={handleViewDetails}>View Details</Button>
-      <Button onClick={() => dispatch(addItem(product))}>Add to Cart</Button>
+      <Button onClick={handleAddToCart}>Add to Cart</Button>
     </Card>
   );
 };

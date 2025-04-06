@@ -22,11 +22,7 @@ const productsSlice = createSlice({
     },
     setCategory: (state, action) => {
       state.selectedCategory = action.payload;
-    },
-    setQuantity: (state, action) => {
-      const { id, quantity } = action.payload;
-      state.quantity[id] = quantity; 
-    },
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -36,7 +32,6 @@ const productsSlice = createSlice({
       .addCase(fetchProducts.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.items = action.payload;
-
         action.payload.forEach((product) => {
           state.quantity[product.id] = 1;
         });
@@ -48,5 +43,5 @@ const productsSlice = createSlice({
   },
 });
 
-export const { setSearchTerm, setCategory, setQuantity } = productsSlice.actions;
+export const { setSearchTerm, setCategory } = productsSlice.actions;
 export default productsSlice.reducer;

@@ -88,10 +88,10 @@ const Checkout = () => {
                 </button>
                 <button
                   type="button"
-                  className="go-back-btn"
+                  className="go-back-button"
                   onClick={() => navigate("/cart")}
                 >
-                   Go Back
+                   Go Back to Cart
                 </button>
               </div>
             </form>
