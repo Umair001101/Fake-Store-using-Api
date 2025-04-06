@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const NotFound = () => {
   const navigate = useNavigate();
-  useEffect(() => {
-    alert('Page NotFound');
-  }, []);
+  
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>404</h1>

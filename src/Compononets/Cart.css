@@ -1,178 +1,119 @@
 .cart-container {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .cart-container h2 {
   text-align: center;
-  color: #333;
-  margin-bottom: 2rem;
+  margin-bottom: 35px;
   font-size: 2rem;
+  color: #333;
 }
 
 .empty-cart {
   text-align: center;
-  font-size: 1.2rem;
-  color: #666;
-  padding: 2rem;
+  font-size: 1.3rem;
+  color: #888;
+  margin-bottom: 25px;
 }
 
 .cart-item {
   display: flex;
-  gap: 2rem;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
-}
-
-.cart-item:hover {
-  transform: translateY(-3px);
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 25px 0;
 }
 
 .item-image {
-  width: 150px;
-  height: 150px;
+  width: 110px;
+  height: 110px;
   object-fit: contain;
-  border-radius: 5px;
+  margin-right: 25px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
 }
 
 .item-details {
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .item-details h4 {
-  margin-top: 0;
-  color: #333;
+  margin: 0 0 8px;
   font-size: 1.2rem;
+  color: #222;
 }
 
 .item-details p {
-  margin: 0.5rem 0;
+  margin: 4px 0;
+  font-size: 0.95rem;
   color: #555;
 }
 
-.item-details button {
-  margin-right: 1rem;
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
+.cart-buttons {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 10px 16px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 0.9rem;
-  transition: all 0.2s ease;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-.remove-button {
-  background-color: #ff4444;
-  color: white;
-}
-
-.remove-button:hover {
-  background-color: #cc0000;
-}
-
-.details-button {
-  background-color: #33b5e5;
-  color: white;
-}
-
-.details-button:hover {
-  background-color: #0099cc;
+button:hover {
+  transform: scale(1.03);
+  opacity: 0.95;
 }
 
 .add-more-button {
-  background-color: #00c851;
+  background-color: #2fbc00 !important;
+  color: white !important;
+}
+
+.remove-one-button {
+  background-color: #ffa940;
   color: white;
 }
 
-.add-more-button:hover {
-  background-color: #007e33;
+.remove-all-button {
+  background-color: #ff4d4f;
+  color: white;
 }
 
+.remove-cart-button {
+  background-color: #ff0e12 !important;
+  color: white !important;
+}
+
+.remove-cart-button:hover {
+  background-color: #c40000 !important;
+}
+
+.details-button {
+  background-color: #1890ff;
+  color: white;
+}
 .cart-container > button {
-  display: block;
-  width: 200px;
-  margin: 2rem auto;
-  padding: 1rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.cart-container > button:nth-of-type(1) {
-  background-color: #4285f4;
+  margin: 12px 8px 0;
+  background-color: #001529;
   color: white;
-  margin-bottom: 1rem;
 }
 
-.cart-container > button:nth-of-type(1):hover {
-  background-color: #3367d6;
-}
-
-.cart-container > button:nth-of-type(2) {
-  background-color: #ffbb33;
-  color: #333;
-}
-
-.cart-container > button:nth-of-type(2):hover {
-  background-color: #ff8800;
-}
-
-h3 {
-  text-align: right;
-  font-size: 1.5rem;
-  color: #333;
-  margin-top: 2rem;
-  padding-right: 2rem;
-}
-
-@media (max-width: 768px) {
-  .cart-container {
-    padding: 1rem;
-    margin: 1rem;
-  }
-
-  .cart-item {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .item-image {
-    width: 100%;
-    height: auto;
-    max-height: 200px;
-  }
-
-  .item-details button {
-    width: 100%;
-    margin: 0.5rem 0;
-  }
-
-  .cart-container > button {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .cart-container h2 {
-    font-size: 1.5rem;
-  }
-
-  .item-details h4 {
-    font-size: 1rem;
-  }
-
-  h3 {
-    font-size: 1.2rem;
-    padding-right: 0;
-  }
+.cart-container > button:hover {
+  background-color: #004080;
 }
