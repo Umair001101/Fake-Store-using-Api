@@ -12,9 +12,9 @@ const Checkout = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(clearCart());
     setSubmitted(true);
     console.log("Order Placed!");
+    dispatch(clearCart());
   };
 
   const GoBack = () => {
@@ -23,7 +23,7 @@ const Checkout = () => {
 
   return (
     <div className="checkout-container">
-      {cartItems.length === 0 ? (<>
+      {(cartItems.length === 0 && submitted === false ) ? (<>
         <h1>Cart is empty!</h1>
         <p>Add items to cart to checkout!</p>
         <button className="go-back-button" onClick={GoBack}>
