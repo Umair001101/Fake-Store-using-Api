@@ -12,13 +12,7 @@ const ProductDescription = () => {
     const cartItems = useSelector((state) => state.cart.items);
     const cartItem = cartItems.find((item) => item.id === product?.id);
     const selectedQuantity = cartItem ? cartItem.quantity : 0;
-    const handleAddToCart = () => {
-        if (selectedQuantity >= product.rating.count) {
-          alert("Cannot add more items than available!");
-          return;
-        }
-        dispatch(addItem(product));
-      };
+
     return (
         <div className="product-description">
             {product ? (
@@ -35,12 +29,7 @@ const ProductDescription = () => {
                     <h3 className="product-price">Rating: {product.rating.rate}</h3>
                     <h3 className="product-numbers">Available no. in stock: {product.rating.count}</h3>
                     <h3 className="product-price">${product.price}</h3>
-                    <button
-                        className="add-to-cart-btn"
-                        onClick={handleAddToCart}
-                    >
-                        Add to Cart
-                    </button>
+                 
                     <button type="button" className="go-back-btn" onClick={() => navigate("/")}>
                         Go to Home
                     </button>

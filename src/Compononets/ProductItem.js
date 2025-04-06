@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../Redux/CartSlice";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-
+import { useState } from "react";
 const Card = styled.div`
   border: 1px solid #ccc;
   padding: 10px;
@@ -45,28 +45,28 @@ const ProductItem = ({ product }) => {
   const cartItems = useSelector((state) => state.cart.items);
   const cartItem = cartItems.find((item) => item.id === product.id);
   const selectedQuantity = cartItem ? cartItem.quantity : 0;
+  const [text, settext] = useState('Add to Cart');
 
   const handleViewDetails = () => {
     navigate("/productdescription", { state: { product } });
   };
 
   const handleAddToCart = () => {
-    if (selectedQuantity >= product.rating.count) {
-      alert("Cannot add more items than available!");
-      return;
-    }
-    dispatch(addItem(product));
-  };
+    dispatch(addItem({ ...product, quantity: selectedQuantity + 1 }));
+    settext("Go to Cart");
 
+  };
+  const handleGoToCart = () => {
+    navigate("/cart");
+    };
   return (
     <Card>
       <Image src={product.image} alt={product.title} />
       <h4>{product.title}</h4>
       <p>${product.price}</p>
       <p>Available Quantity: {product.rating.count}</p>
-      <p>Selected Quantity: {selectedQuantity}</p>
       <Button onClick={handleViewDetails}>View Details</Button>
-      <Button onClick={handleAddToCart}>Add to Cart</Button>
+      <Button onClick={text === "Add to Cart" ? handleAddToCart : handleGoToCart}>{text}</Button>
     </Card>
   );
 };

@@ -84,6 +84,14 @@ button:hover {
   background-color: #2fbc00 !important;
   color: white !important;
 }
+.empty-cart-button{
+  background-color: #000000 !important;
+  color: white !important;
+}
+.empty-cart-button:hover{
+  background-color: #0038a0 !important;
+  color: white !important;
+}
 
 .remove-one-button {
   background-color: #ffa940;
@@ -108,10 +116,12 @@ button:hover {
   background-color: #1890ff;
   color: white;
 }
+
 .cart-container > button {
   margin: 12px 8px 0;
   background-color: #001529;
   color: white;
+  text-align: center;
 }
 
 .cart-container > button:hover {
