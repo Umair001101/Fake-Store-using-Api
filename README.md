@@ -10,9 +10,12 @@ This is a simple e-commerce store built using **React** and **Redux**, fetching 
 - 🔍 **Product Listing & Description**  
 - 🛍 **Cart Management** (Add & Remove Items)  
 - ✅ **Checkout Page**  
+- 🛂 **Google Authorization** for User Login  
+- 📜 **Contact Us Page**  
+- 📜 **Privacy Policy Page**  
+- 📜 **About Us Page**  
 - 🎯 **Redux State Management**  
 - ❌ **404 Not Found Page**  
-
 ---
 
 ## 📁 Project Structure
@@ -26,10 +29,14 @@ src/
 │   ├── ProductDescription.js
 │   ├── Product.js
 │   ├── ProductItem.js
+│   ├── ContactUs.js
+│   ├── PrivacyPolicy.js
+│   └── AboutUs.js
+
 │-- redux/
 │   ├── CartSlice.js
 │   ├── ProductSlice.js
-│   ├── Store.js
+│   └──  Store.js
 │-- App.css
 │-- App.js
 │-- App.test.js
@@ -73,6 +80,10 @@ React Router is used for client-side routing:
 - **Cart Page** → `/cart`
 - **Checkout Page** → `/checkout`
 - **404 Page** → `/*`
+- **Product List** → `/products`
+- **About Us** → `/Aboutus`
+- **Contact Us** → `/Contactus`
+- **Privacy Policy** → `/PrivacyPolicy`
 
 ### Example usage in `App.js`:
 
@@ -81,11 +92,14 @@ function App() {
   return (
     <Router>
       <Routes>
-          <Route path="/" element={<Products />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/productdescription" element={<ProductDescription />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="*" element={<NotFound />} />
+    <Route path="/" element={<Products />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/productdescription" element={<ProductDescription />} /> 
+        <Route path="/checkout" element={<Checkout profile={profile} />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="/aboutus" element={<Aboutus/>}       
+        <Route path="/contactus" element={<ContactUs/>} />
+        <Route path="/privacypolicy" element={<PrivacyPolicy/>} />
       </Routes>
     </Router>
   );

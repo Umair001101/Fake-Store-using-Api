@@ -8,9 +8,10 @@ import Cart from "./Compononets/Cart";
 import ProductDescription from "./Compononets/ProductDescription";
 import Checkout from "./Compononets/Checkout";
 import NotFound from "./Compononets/NotFound";
-import "./App.css";
 import Aboutus from './Compononets/Aboutus';
-
+import ContactUs from './Compononets/ContactUs';
+import PrivacyPolicy from './Compononets/PrivacyPolicy';
+import "./App.css";
 function App() {
     const [user, setUser] = useState([]);
     const [profile, setProfile] = useState([]);
@@ -50,7 +51,7 @@ function App() {
                     <Link to="/">Products</Link>
                     <Link to="/cart" className="cart-icon">
                         🛒 Cart
-                        {cartItems.length > 0 && <span>{cartItems.length}</span>}
+                        {cartItems.length > 0 && <span >{cartItems.length}</span>}
                     </Link>
                 </nav>
                 <div className="auth">
@@ -71,18 +72,21 @@ function App() {
                     <Route path="/" element={<Products />} />
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/productdescription" element={<ProductDescription />} />
-                    <Route 
-                        path="/checkout" 
-                        element={<Checkout profile={profile} />} 
-                    />
+                    <Route path="/checkout" element={<Checkout profile={profile} />} />
                     <Route path="*" element={<NotFound />} />
                     <Route path="/aboutus" element={<Aboutus/>} />
+                    <Route path="/contactus" element={<ContactUs/>} />
+                    <Route path="/privacypolicy" element={<PrivacyPolicy/>} />
            </Routes>
             </div>
         <footer>
             <div className="footer">
                 <p>© 2025 Zylo. All rights reserved.</p>
                 <Link to="/aboutus">About us</Link>
+                <br />
+                <Link to="/contactus">Contact us</Link>
+                <br />
+                <Link to="/privacypolicy">Privacy Policy</Link>
             </div>
         </footer>
         </Router>
