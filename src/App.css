@@ -1,4 +1,3 @@
-/* General styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -6,7 +5,6 @@ body {
   background-color: #f4f4f4;
 }
 
-/* Navbar container */
 .navbar {
   padding: 10px 20px;
   border-bottom: 2px solid #161515;
@@ -16,31 +14,30 @@ body {
   background-color: rgb(16, 16, 16);
 }
 
-/* Logo */
 .navbar h2 {
   margin: 0;
   color: #f3f0f0;
 }
 
-/* Navigation links */
 .navbar nav {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  margin-left: 70px;
 }
 
 .navbar nav a {
   margin-right: 20px;
   text-decoration: none;
-  color: #333;
+  color: rgb(137, 137, 137);
   font-weight: bold;
   transition: color 0.3s;
 }
 
 .navbar nav a:hover {
-  color: #ff6600;
+  color: #006eff;
 }
 
-/* Shopping cart icon */
 .cart-icon {
   position: relative;
   display: flex;
@@ -58,6 +55,81 @@ body {
   font-size: 12px;
   font-weight: bold;
 }
+
+.cart-icon span {
+  margin-left: 5px;
+  font-size: 12px;
+  color: yellow;
+}
+
 .container {
   padding: 20px;
+}
+
+.auth {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile img {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.user-profile span {
+  color: white;
+  font-weight: bold;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+.footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 50px;
+  font-size: 14px;
+}
+
+.footer p {
+  margin: 0 0 10px;
+  font-weight: 400;
+  color: #aaa;
+}
+
+.footer a {
+  color: #f0f0f0;
+  text-decoration: none;
+  margin: 5px 0;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #00bfff;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    font-size: 13px;
+    padding: 20px 10px;
+  }
 }

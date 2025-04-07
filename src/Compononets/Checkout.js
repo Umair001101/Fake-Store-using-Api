@@ -4,12 +4,15 @@ import { clearCart } from "../Redux/CartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import "./Checkout.css";
 
-const Checkout = () => {
+const Checkout = ({ profile }) => {  
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [submitted, setSubmitted] = useState(false);
   const cartItems = useSelector((state) => state.cart.items);
-
+  const [profileData, setProfileData] = useState({
+    name: profile ? profile.name : "",
+    email: profile ? profile.email : "",
+  });
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
@@ -20,7 +23,13 @@ const Checkout = () => {
   const GoBack = () => {
     navigate("/");
   };
-
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setProfileData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  }
   return (
     <div className="checkout-container">
       {(cartItems.length === 0 && submitted === false ) ? (<>
@@ -42,8 +51,23 @@ const Checkout = () => {
             </>
           ) : (
             <form onSubmit={handleSubmit} className="checkout-form">
-              <input type="text" name="name" placeholder="Name" required />
-              <input type="email" name="email" placeholder="Email" required />
+              <p>Welcome, {profile ? profile.name : "Guest"}</p> 
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                required
+                value={profileData.name}
+                onChange={handleChange}
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                value={profileData.email}
+                onChange={handleChange}
+              />
               <input type="text" name="address" placeholder="Address" required />
               <input type="text" name="city" placeholder="City" required />
               <input

@@ -73,7 +73,7 @@ const Cart = () => {
             Remove All
           </button>
           <button onClick={Checkout}>Checkout</button>
-          <button onClick={AddMore} className="add-more-button">Add More Items</button>
+          <button onClick={AddMore} className="add-more-button">Continue Shopping</button>
         </>
       )}
     </div>
