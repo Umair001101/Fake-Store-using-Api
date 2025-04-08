@@ -1,0 +1,97 @@
+/* General styles for the card container */
+.card {
+  border: 1px solid #ccc;
+  padding: 16px;
+  width: 220px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  background-color: #fff;
+  margin: 10px;
+  text-align: center;
+}
+
+.card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling for the product image */
+.image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.image:hover {
+  transform: scale(1.05);
+}
+
+/* Product title styling */
+h4 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Price and available quantity */
+p {
+  font-size: 1rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+/* Styling for the action buttons */
+.button {
+  margin: 8px 5px;
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 100%;
+}
+
+.button:first-of-type {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.button:nth-of-type(2) {
+  background-color: #28a745;
+  color: #fff;
+}
+
+/* Hover effects for buttons */
+.button:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Success message for added to cart */
+p[style="color: green"] {
+  font-size: 0.9rem;
+  color: #28a745;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .card {
+    width: 100%;
+    margin: 10px auto;
+  }
+
+  .image {
+    height: 160px;
+  }
+}
