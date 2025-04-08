@@ -3,10 +3,22 @@
 This is a simple e-commerce store built using **React** and **Redux**, fetching product data from the [Fake Store API](https://fakestoreapi.com/products). Users can browse products, view product details, add items to the cart, and proceed to checkout.
 ## Note:
 ``` 
-you will need to add google CLient ID to your .env file (the .env file should be in the root of project)
-you can create your own google client ID from the google cloud console
-you can see how to get it easily from this blog:
-(https://blog.logrocket.com/guide-adding-google-login-react-app/?utm_source=chatgpt.com)
+You need to add a Google Client ID to your `.env` file (which should be located in the root of the project).
+
+You can create your own Google Client ID from the Google Cloud Console.
+
+For a step-by-step guide on how to get it, check out this blog:  
+https://blog.logrocket.com/guide-adding-google-login-react-app/?utm_source=chatgpt.com
+
+You can skip the coding part of the blog — you only need to follow the steps to create the Client ID.
+
+Once you have it, add the following line to your `.env` file:
+
+REACT_APP_GOOGLE_CLIENT_ID=your-client-id.apps.googleusercontent.com
+
+After that, install the dependencies and the program should run smoothly.
+
+
 
 ```
 ---
