@@ -34,13 +34,14 @@ src/
 │   ├── NotFound.js
 │   ├── Checkout.js
 │   ├── ProductDescription.js
-│   ├── Product.js
+│   ├── Products.js
 │   ├── ProductItem.js
 │   ├── ContactUs.js
 │   ├── PrivacyPolicy.js
 │   └── AboutUs.js
 
 │-- redux/
+│   ├── AuthorizationSlice.js
 │   ├── CartSlice.js
 │   ├── ProductSlice.js
 │   └──  Store.js
