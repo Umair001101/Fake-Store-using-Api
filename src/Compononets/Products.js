@@ -21,7 +21,6 @@ function Products() {
     product.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
     (selectedCategory === "all" || product.category === selectedCategory)
   );
-
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;

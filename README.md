@@ -1,7 +1,14 @@
 # 🛍️ FakeStore - React E-commerce Website
 
 This is a simple e-commerce store built using **React** and **Redux**, fetching product data from the [Fake Store API](https://fakestoreapi.com/products). Users can browse products, view product details, add items to the cart, and proceed to checkout.
+## Note:
+``` 
+you will need to add google CLient ID to your .env file (the .env file should be in the root of project)
+you can create your own google client ID from the google cloud console
+you can see how to get it easily from this blog:
+(https://blog.logrocket.com/guide-adding-google-login-react-app/?utm_source=chatgpt.com)
 
+```
 ---
 
 ## 🚀 Features
@@ -52,6 +59,8 @@ src/
 ```
 npm install
 npm install react react-dom react-router-dom @reduxjs/toolkit react-redux
+npm install redux-persist
+npm install @react-oauth/google
 ```
 ## 🔌 API Integration
 ### This project fetches product data from Fake Store API.
@@ -63,8 +72,9 @@ fetch("https://fakestoreapi.com/products")
 ```
 ## 📂 Redux State Management
 
-Redux is used to manage the **Cart** and **Product** state.
+Redux is used to manage the **Authorization** ,**Cart** and **Product** state.
 
+- **`AuthorizationSlice.js`** → Manages Google Authorization.  
 - **`ProductSlice.js`** → Handles fetching products.  
 - **`CartSlice.js`** → Manages cart state (add/remove items).  
 - **`Store.js`** → Combines slices and configures Redux store.  
@@ -107,6 +117,7 @@ function App() {
 
 export default App;
 ``` 
+
 ## 3️⃣ Start the development server
 ```
 npm start

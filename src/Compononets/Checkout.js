@@ -19,7 +19,6 @@ const Checkout = ({ profile }) => {
     console.log("Order Placed!");
     dispatch(clearCart());
   };
-
   const GoBack = () => {
     navigate("/");
   };
@@ -84,6 +83,8 @@ const Checkout = ({ profile }) => {
                 placeholder="Card Number"
                 required
                 maxLength="16"
+                minLength={16}
+      
               />
               <input
                 type="text"
@@ -91,6 +92,7 @@ const Checkout = ({ profile }) => {
                 placeholder="MM/YY"
                 required
                 maxLength="5"
+                minLength={5}
               />
               <input
                 type="text"
@@ -98,6 +100,7 @@ const Checkout = ({ profile }) => {
                 placeholder="CVV"
                 required
                 maxLength="3"
+                minLength={3}
               />
               <div className="buttons">
                 <button type="submit" className="checkout-btn">
