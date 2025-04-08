@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./ProductDescription.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem } from "../Redux/CartSlice";
+import { addItem, remove_a_Item } from "../Redux/CartSlice";
 
 const ProductDescription = () => {
     const navigate = useNavigate();
@@ -12,6 +12,12 @@ const ProductDescription = () => {
     const cartItems = useSelector((state) => state.cart.items);
     const cartItem = cartItems.find((item) => item.id === product?.id);
     const selectedQuantity = cartItem ? cartItem.quantity : 0;
+    const handleAddToCart = () => {
+        dispatch(addItem({ id: product.id, quantity: selectedQuantity + 1 }));
+    };
+    const handleremove_a_Item = () => {
+       dispatch(remove_a_Item(product.id));
+    };
 
     return (
         <div className="product-description">
@@ -29,7 +35,20 @@ const ProductDescription = () => {
                     <h3 className="product-price">Rating: {product.rating.rate}</h3>
                     <h3 className="product-numbers">Available no. in stock: {product.rating.count}</h3>
                     <h3 className="product-price">${product.price}</h3>
-                 
+                    <button
+                        className="add-to-cart-btn"
+                        onClick={handleAddToCart}
+                        disabled={selectedQuantity >= product.rating.count} 
+                    >
+                        Add to Cart
+                    </button>
+                    <button
+                        className="remove-item-btn"
+                        onClick={handleremove_a_Item}
+                        disabled={selectedQuantity <= 0}
+                    >
+                      Remove an Item 
+                    </button>
                     <button type="button" className="go-back-btn" onClick={() => navigate("/")}>
                         Go to Home
                     </button>
