@@ -12,7 +12,9 @@ import Aboutus from './Compononets/Aboutus';
 import ContactUs from './Compononets/ContactUs';
 import Products from './Compononets/Products';
 import PrivacyPolicy from './Compononets/PrivacyPolicy';
+import Orderlist from './Compononets/Orderlist';
 import './App.css';
+
 function App() {
   const dispatch = useDispatch();
   const { user, isAuthenticated } = useSelector(state => state.authorization);
@@ -56,6 +58,7 @@ function App() {
             🛒 Cart
             {cartItems.length > 0 && <span>{cartItems.length}</span>}
           </Link>
+          <Link to ="/Orderlist">OrderList</Link>
         </nav>
         <div className="auth">
           {isAuthenticated ? (
@@ -80,6 +83,7 @@ function App() {
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="/Orderlist" element={<Orderlist />} />
         </Routes>
       </div>
 

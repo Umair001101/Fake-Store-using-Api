@@ -31,6 +31,7 @@ const ProductItem = ({ product }) => {
       <h4>{product.title}</h4>
       <p>${product.price}</p>
       <p>Available Quantity: {product.rating.count}</p>
+      <p>Rating: {product.rating.rate}</p>
       <button className="button" onClick={handleViewDetails}>View Details</button>
       <button className="button" onClick={text === "Add to Cart" ? handleAddToCart : handleGoToCart}>{text}</button>
       <p style={{ color: "green" }}>{text === "Add to Cart" ? "" : "Added to Cart!"}</p>

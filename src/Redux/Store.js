@@ -5,17 +5,18 @@ import storage from 'redux-persist/lib/storage/session';
 import productsReducer from "./productsSlice";  
 import cartReducer from "./CartSlice";       
 import authorizationReducer from "./AuthorizationSlice";
-
+import OrderReducer from "./OrderSlice"; 
 const rootReducer = combineReducers({
   products: productsReducer,
   cart: cartReducer,
   authorization: authorizationReducer,
+  Order: OrderReducer, 
 });
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['cart', 'authorization'],
+  whitelist: ['cart', 'authorization','Order'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
