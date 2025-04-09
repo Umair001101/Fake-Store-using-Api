@@ -26,16 +26,27 @@ const ProductItem = ({ product }) => {
   };
 
   return (
-    <div className="card">
-      <img className="image" src={product.image} alt={product.title} />
-      <h4>{product.title}</h4>
-      <p>${product.price}</p>
-      <p>Available Quantity: {product.rating.count}</p>
-      <p>Rating: {product.rating.rate}</p>
-      <button className="button" onClick={handleViewDetails}>View Details</button>
-      <button className="button" onClick={text === "Add to Cart" ? handleAddToCart : handleGoToCart}>{text}</button>
-      <p style={{ color: "green" }}>{text === "Add to Cart" ? "" : "Added to Cart!"}</p>
-    </div>
+<div className="card" onClick={handleViewDetails}>
+  <img className="image" src={product.image} alt={product.title} />
+  <h4>{product.title}</h4>
+  <p>${product.price}</p>
+  <p>Available Quantity: {product.rating.count}</p>
+  <p>Rating: {product.rating.rate}</p>
+  <button
+  className="button"
+  onClick={(e) => {
+    e.stopPropagation();
+    text === "Add to Cart" ? handleAddToCart() : handleGoToCart();
+  }}
+  style={{ backgroundColor: text === "Add to Cart" ? "" : "rgb(22, 172, 39)" }}
+  >
+    {text}
+  </button>
+
+  
+  <p style={{ color: "green" }}>{text === "Add to Cart" ? "" : "Added to Cart!"}</p>
+</div>
+
   );
 };
 

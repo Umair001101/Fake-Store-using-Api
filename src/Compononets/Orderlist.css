@@ -1,79 +1,129 @@
-/* Main container */
+/* General styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+/* Container for the entire order list */
 .order-container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #f9f9f9;
-  border-radius: 10px;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Order title */
 .order-title {
   text-align: center;
+  font-size: 2rem;
   color: #333;
-  margin-bottom: 2rem;
+  margin-bottom: 20px;
 }
 
+/* When there are no orders */
 .no-orders {
   text-align: center;
-  color: #666;
   font-size: 1.2rem;
+  color: #888;
 }
 
-/* Orders list */
+/* Style for the list of orders */
 .orders-list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 20px;
 }
 
-/* Individual order card */
+/* Individual order card styling */
 .order-card {
-  background-color: white;
-  padding: 1.5rem;
+  background-color: #fafafa;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.order-card:hover {
-  transform: translateY(-2px);
-}
-
+/* Order number */
 .order-number {
-  color: #2c3e50;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 0.5rem;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
 }
 
+/* Styling for order details */
 .order-details {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 0.8rem;
-}
-
-.detail-label {
-  font-weight: 600;
+  font-size: 1rem;
   color: #555;
 }
 
-/* Buttons */
+.detail-label {
+  font-weight: bold;
+}
+
+/* Styling for the list of ordered items */
+.order-items {
+  margin-top: 20px;
+}
+
+.items-title {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.items-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.item-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.item-image:hover{
+  transform: scale(3.0);
+}
+
+.item-name {
+  font-weight: bold;
+}
+
+.item-quantity,
+.item-price,
+.item-total {
+  margin-left: 10px;
+  color: #666;
+}
+
+/* Button group styling */
 .button-group {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 30px;
 }
 
 .order-button {
-  padding: 0.8rem 1.5rem;
+  padding: 10px 20px;
+  font-size: 1rem;
   border: none;
-  border-radius: 5px;
-  font-weight: 600;
+  border-radius: 4px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: background-color 0.3s;
 }
 
 .clear-btn {
@@ -101,79 +151,4 @@
 
 .contact-btn:hover {
   background-color: #27ae60;
-}
-/* Order Items Styles */
-.order-items {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid #eee;
-}
-
-.items-title {
-  color: #2c3e50;
-  margin-bottom: 0.5rem;
-}
-
-.items-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.item {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.item:last-child {
-  border-bottom: none;
-}
-
-.item-name {
-  flex: 2;
-  font-weight: 500;
-}
-
-.item-quantity {
-  flex: 1;
-  text-align: center;
-  color: #666;
-}
-
-.item-price {
-  flex: 1;
-  text-align: right;
-  font-weight: 600;
-}
-
-.no-items {
-  color: #666;
-  font-style: italic;
-}
-.item-image {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  margin-right: 25px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #f9f9f9;
-}
-
-/* Responsive adjustments */
-@media (max-width: 600px) {
-  .order-container {
-    padding: 1rem;
-    margin: 1rem;
-  }
-  
-  .button-group {
-    flex-direction: column;
-  }
-  
-  .order-button {
-    width: 100%;
-  }
 }

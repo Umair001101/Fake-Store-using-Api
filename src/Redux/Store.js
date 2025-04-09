@@ -5,12 +5,12 @@ import storage from 'redux-persist/lib/storage/session';
 import productsReducer from "./productsSlice";  
 import cartReducer from "./CartSlice";       
 import authorizationReducer from "./AuthorizationSlice";
-import OrderReducer from "./OrderSlice"; 
+import OrderReducer from "./OrderSlice";
 const rootReducer = combineReducers({
   products: productsReducer,
   cart: cartReducer,
   authorization: authorizationReducer,
-  Order: OrderReducer, 
+  Order: OrderReducer,
 });
 
 const persistConfig = {

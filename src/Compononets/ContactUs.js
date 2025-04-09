@@ -47,7 +47,7 @@ const ContactUs = () => {
           required
         ></textarea>
         <button type="submit">Send Message</button>
-        <p>Or: You can also send an Email on <a href="mailto:sheikhumair81@gmail.com">sheikhumair81@gmail.com</a></p>
+        <p>Or: You can also send an Email on <a href="mailto:zylo@gmail.com">zylo@gmail.com</a></p>
       </form>
     </div>
   );

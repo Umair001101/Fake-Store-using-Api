@@ -7,7 +7,6 @@ const Cart = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
-
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
   const Checkout = () => {

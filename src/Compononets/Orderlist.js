@@ -8,6 +8,7 @@ function Orderlist() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const orders = useSelector((state) => state.Order?.items || []);
+
   const handleClearOrder = () => {
     dispatch(clearOrder());
     navigate('/');
@@ -15,6 +16,10 @@ function Orderlist() {
 
   const gotoHome = () => navigate('/');
   const contactUs = () => navigate('/contactus');
+
+  const handleViewProductDetails = (product) => {
+    navigate('/productdescription', { state: { product } });
+  };
 
   return (
     <div className="order-container">
@@ -36,26 +41,27 @@ function Orderlist() {
 
                 <div className="order-items">
                   <h3 className="items-title">Ordered Items:</h3>
-                  {order.items && order.items.length > 0 ? (
-                    <ul className="items-list">
-                      {order.items.map((item, itemIndex) => (
-                        <li key={itemIndex} className="item">
-                          <img src={item.image} alt={item.title} className="item-image" />
-                          <span className="item-name">{item.title}</span>
-                          <span className="item-quantity">Qty: {item.quantity}</span>
-                          <span className="item-price">${item.price.toFixed(2)}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p className="no-items">No items in this order</p>
-                  )}
+                  <ul className="items-list">
+                    {order.items.map((item) => (
+                      <li>
+                        <img src={item.image} alt={item.title} className="item-image" onClick={()=> handleViewProductDetails(item)}/>
+                        <span className="item-name">{item.title}</span>
+                        <span className="item-quantity">Qty: {item.quantity}</span>
+                        <span className="item-price"> Price: ${item.price}</span>
+                        <span className="item-total">Sub Price: ${item.price * item.quantity}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
+                <h2 className="order-total">
+                  Total Order Price: ${(order.items.reduce((total, item) => total + item.price * item.quantity, 0)).toFixed(2)}
+                </h2>
               </div>
             </div>
           ))}
         </div>
       )}
+
       <div className="button-group">
         <button className="order-button clear-btn" onClick={handleClearOrder}>Clear All Orders</button>
         <button className="order-button home-btn" onClick={gotoHome}>Back to Home</button>
