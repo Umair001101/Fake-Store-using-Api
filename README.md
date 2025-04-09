@@ -89,7 +89,7 @@ fetch("https://fakestoreapi.com/products")
 
 Redux is used to manage the **Authorization** ,**Cart** and **Product** state.
 
-- - **`OrderSlice.js`** → Manages Order List.  
+- **`OrderSlice.js`** → Manages Order List.  
 - **`AuthorizationSlice.js`** → Manages Google Authorization.  
 - **`ProductSlice.js`** → Handles fetching products.  
 - **`CartSlice.js`** → Manages cart state (add/remove items).  
