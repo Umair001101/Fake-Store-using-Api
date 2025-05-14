@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts, setSearchTerm, setCategory } from "../Redux/productsSlice";
-import ProductItem from "./ProductItem";
-import "./Products.css"; 
+import ProductItem, { LoaderCard } from "./ProductItem";
+import "./Products.css";
 
 function Products() {
   const dispatch = useDispatch();
@@ -15,12 +15,11 @@ function Products() {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  if (status === "loading") return <h2>Loading...</h2>;
-  if (status === "failed") return <h2>Error: {error}</h2>;
   const filteredProducts = items.filter((product) =>
     product.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
     (selectedCategory === "all" || product.category === selectedCategory)
   );
+
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -40,7 +39,7 @@ function Products() {
         value={searchTerm}
         onChange={(e) => {
           dispatch(setSearchTerm(e.target.value));
-          setCurrentPage(1); 
+          setCurrentPage(1);
         }}
         className="search-input"
       />
@@ -58,17 +57,34 @@ function Products() {
         ))}
       </select>
       <h1 className="products-title">Products</h1>
-      <div className="products-count">
-        {filteredProducts.length} {filteredProducts.length === 1 ? "product" : "products"} found
-      </div>
+
+      {status === 'failed' && <h2 className="error-message">Error: {error}</h2>}
+
+      {status !== 'failed' && (
+        <div className="products-count">
+          {status === 'loading' ? (
+            <div className="skeleton-text short"></div>
+          ) : (
+            `${filteredProducts.length} ${filteredProducts.length === 1 ? "product" : "products"} found`
+          )}
+        </div>
+      )}
+
       <div className="products-list">
-        {currentProducts.length > 0 ? (
-          currentProducts.map((product) => <ProductItem key={product.id} product={product} />)
+        {status === 'loading' ? (
+          Array(productsPerPage).fill().map((_, index) => (
+            <LoaderCard key={index} />
+          ))
+        ) : currentProducts.length > 0 ? (
+          currentProducts.map((product) => (
+            <ProductItem key={product.id} product={product} />
+          ))
         ) : (
           <h3>No products found.</h3>
         )}
       </div>
-      {totalPages > 1 && (
+
+      {status !== 'loading' && totalPages > 1 && (
         <div className="pagination">
           {[...Array(totalPages)].map((_, idx) => {
             const pageNumber = idx + 1;

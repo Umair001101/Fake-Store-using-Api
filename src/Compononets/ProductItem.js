@@ -2,8 +2,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../Redux/CartSlice";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import './ProductItem.css'; 
+import './ProductItem.css';
 
+// Main Product Component
 const ProductItem = ({ product }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -26,27 +27,38 @@ const ProductItem = ({ product }) => {
   };
 
   return (
-<div className="card" onClick={handleViewDetails}>
-  <img className="image" src={product.image} alt={product.title} />
-  <h4>{product.title}</h4>
-  <p>${product.price}</p>
-  <p>Available Quantity: {product.rating.count}</p>
-  <p>Rating: {product.rating.rate}</p>
-  <button
-  className="button"
-  onClick={(e) => {
-    e.stopPropagation();
-    text === "Add to Cart" ? handleAddToCart() : handleGoToCart();
-  }}
-  style={{ backgroundColor: text === "Add to Cart" ? "" : "rgb(22, 172, 39)" }}
-  >
-    {text}
-  </button>
+    <div className="card" onClick={handleViewDetails}>
+      <img className="image" src={product.image} alt={product.title} />
+      <h4>{product.title}</h4>
+      <p>${product.price}</p>
+      <p>Available Quantity: {product.rating.count}</p>
+      <p>Rating: {product.rating.rate}</p>
+      <button
+        className="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          text === "Add to Cart" ? handleAddToCart() : handleGoToCart();
+        }}
+        style={{ backgroundColor: text === "Add to Cart" ? "" : "rgb(22, 172, 39)" }}
+      >
+        {text}
+      </button>
+      <p style={{ color: "green" }}>{text === "Add to Cart" ? "" : "Added to Cart!"}</p>
+    </div>
+  );
+};
 
-  
-  <p style={{ color: "green" }}>{text === "Add to Cart" ? "" : "Added to Cart!"}</p>
-</div>
-
+// Loader Component (Add this at the bottom of the file)
+export const LoaderCard = () => {
+  return (
+    <div className="card skeleton">
+      <div className="skeleton-image"></div>
+      <div className="skeleton-text"></div>
+      <div className="skeleton-text short"></div>
+      <div className="skeleton-text"></div>
+      <div className="skeleton-text"></div>
+      <div className="skeleton-button"></div>
+    </div>
   );
 };
 
